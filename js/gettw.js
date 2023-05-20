@@ -655,6 +655,39 @@ $(go.Overview, "divRadar",
 	contentAlignment: go.Spot.Center
   });
 
+// Guardar
+function saveModelToFile() {
+	var modelData = diagram.model.toJson();
+	var blob = new Blob([modelData], { type: 'application/json' });
+	var url = URL.createObjectURL(blob);
+	var link = document.createElement('a');
+	link.href = url;
+	link.download = 'myDiagram.json';
+	link.click();
+}
+
+// Cargar desde fichero
+function selectFile() {
+	const fileInput = document.getElementById("fileInput");
+	fileInput.click();
+}
+
+document.getElementById("fileInput").addEventListener("change", function(event) {
+    const selectedFile = event.target.files[0];
+
+    if (selectedFile) {
+		var file = fileInput.files[0];
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			var modelData = e.target.result;
+			diagram.model = go.Model.fromJson(modelData);
+		};
+		reader.readAsText(file);
+    } else {
+      console.log("No file selected.");
+    }
+});  
+
 /***
 	COMUNICACIÓN CLIENTE-SERVIDOR
 		--- TOGETHERJS ---
