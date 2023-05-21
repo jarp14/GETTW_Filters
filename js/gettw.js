@@ -107,8 +107,8 @@ $(go.Node, "Spot",
 			new go.Binding("figure"),
 			new go.Binding("fill"),
 			new go.Binding("strokeWidth"),
-			new go.Binding("width"),
-			new go.Binding("height")
+			new go.Binding("width").makeTwoWay(),
+			new go.Binding("height").makeTwoWay()
 		),
 		$(go.TextBlock,
 			{
@@ -161,8 +161,8 @@ $(go.Node, "Spot",
 			new go.Binding("figure"),
 			new go.Binding("fill"),
 			new go.Binding("strokeWidth"),
-			new go.Binding("width"),
-			new go.Binding("height")
+			new go.Binding("width").makeTwoWay(),
+			new go.Binding("height").makeTwoWay()
 		),
 		$(go.Panel, "Horizontal",
 			{ margin: 14 },
@@ -232,8 +232,8 @@ $(go.Node, "Spot",
 			new go.Binding("figure"),
 			new go.Binding("fill"),
 			new go.Binding("strokeWidth"),
-			new go.Binding("width"),
-			new go.Binding("height")
+			new go.Binding("width").makeTwoWay(),
+			new go.Binding("height").makeTwoWay()
 		),
 		$(go.Panel, "Horizontal",
 			$(go.TextBlock,
@@ -612,7 +612,7 @@ if (window.screen.width > 2560) {
 }
 
 function createPalettes(nodeSize) {
-	var paletteNodes =
+	var palette =
 	$(go.Palette, "divPalette",
 		{
 			maxSelectionCount: 1,
