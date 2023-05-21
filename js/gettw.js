@@ -666,6 +666,21 @@ function saveModelToFile() {
 	link.click();
 }
 
+// Imprimir imagen
+function printImage() {
+	var svg = diagram.makeSvg({ scale: 1 });
+	var svgData = new XMLSerializer().serializeToString(svg);
+	var blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+	var url = URL.createObjectURL(blob);
+
+	// Create a link element to trigger the download
+	var link = document.createElement('a');
+	link.href = url;
+	link.download = 'diagram.svg';
+	link.click(); // Simulate a click event to trigger the download
+	URL.revokeObjectURL(url); // Clean up the temporary URL
+}
+
 // Cargar desde fichero
 function selectFile() {
 	const fileInput = document.getElementById("fileInput");
