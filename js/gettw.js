@@ -115,11 +115,13 @@ $(go.Node, "Spot",
 				font: "16pt Roboto, sans-serif, Arial, Helvetica",
 				margin: 14,
 				cursor: "grab",
+				alignment: go.Spot.Default,
 				wrap: go.TextBlock.WrapFit,
 				editable: false
 			},
 			new go.Binding("font"),
 			new go.Binding("editable"),
+			new go.Binding("alignment"),
 			new go.Binding("margin"),
 			new go.Binding("text").makeTwoWay()
 		)
@@ -556,7 +558,7 @@ $(go.Link,
 	},
 	new go.Binding("points").makeTwoWay(),
 	$(go.Shape, // la forma de la línea
-		{ isPanelMain: true },
+		{ isPanelMain: true, cursor: "grab" },
 		new go.Binding("stroke", "linkStrokeColor"),
 		new go.Binding("strokeWidth", "linkStrokeWidth"),
 		new go.Binding("strokeDashArray", "dash",
@@ -572,21 +574,16 @@ $(go.Link,
 		new go.Binding("stroke", "toArrowStrokeColor"),
 		new go.Binding("fill", "toArrowColor"),
 		new go.Binding("strokeWidth", "toArrowStrokeWidth")),
-	$(go.Panel, "Auto",
-		$(go.Shape, "RoundedRectangle",  // la forma del texto del enlace
-			{ fill: "transparent", stroke: null, cursor: "grab" }),
-		$(go.TextBlock, // texto del enlace, editable
-			{
-				textAlign: "center",
-				cursor: "grab",
-				font: "10pt Roboto, sans-serif, Arial, Helvetica",
-				stroke: "#919191",
-				margin: 2,
-				minSize: new go.Size(10, 4),
-				editable: true
-			},
+	$(go.TextBlock, // texto del enlace, editable
+		{
+			segmentOffset: new go.Point(0, -15),
+			cursor: "grab",
+			font: "10pt Roboto, sans-serif, Arial, Helvetica",
+			stroke: "#919191",
+			editable: true
+		},
+		new go.Binding("editable"),
 		new go.Binding("text").makeTwoWay())
-	)
 );
 
 var linksTemplates = new go.Map();
