@@ -623,7 +623,7 @@ function createPalettes(nodeSize) {
 					// nodos
 					{ text: "+", figure: "Circle", fill: "#8582fd", font: "16pt Roboto, sans-serif, Arial, Helvetica", editable: false, width: nodeSize/3, height: nodeSize/3, category: "shape" },
 					{ text: "Z", superindex: "-1", figure: "Rectangle", font: "16pt Roboto, sans-serif, Arial, Helvetica", editable: false, fill: "#8582fd", category: "shape_textSup" },
-					{ text: "", subindex: "", figure: "Triangle", fill: "#8582fd", font: "16pt Roboto, sans-serif, Arial, Helvetica", width: nodeSize/3, height: nodeSize/3, editable: true, category: "shape_textSub" },
+					{ text: "", subindex: "", figure: "TriangleRight", fill: "#8582fd", font: "16pt Roboto, sans-serif, Arial, Helvetica", width: nodeSize/3, height: nodeSize/3, editable: true, category: "shape_textSub" },
 					{ text: "x[n]", category: "textblock" },
 					{ text: "x[n-N]", category: "textblock" },
 					{ text: "y[n]", category: "textblock" },
